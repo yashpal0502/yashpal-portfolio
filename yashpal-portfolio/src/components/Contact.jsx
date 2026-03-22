@@ -3,10 +3,19 @@ import theme_pattern from "../assets/theme_pattern.svg";
 import { MailIcon, MapPinIcon, PhoneCallIcon } from "lucide-react";
 
 const Contact = () => {
+<<<<<<< HEAD
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append("access_key", "162e917a-0b51-41c5-8c03-3a417acb0b9d");
+=======
+  const emailKey = import.meta.env.VITE_EMAIL_KEY;
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", emailKey);
+>>>>>>> f1feda4 (email access key updated)
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -14,7 +23,11 @@ const Contact = () => {
     });
 
     const data = await response.json();
+<<<<<<< HEAD
     // setResult(data.success ? "Success!" : "Error");
+=======
+    setResult(data.success ? "Success!" : "Error");
+>>>>>>> f1feda4 (email access key updated)
   };
   return (
     <div
