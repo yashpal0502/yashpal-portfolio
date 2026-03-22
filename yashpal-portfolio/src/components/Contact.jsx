@@ -4,7 +4,7 @@ import { MailIcon, MapPinIcon, PhoneCallIcon } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white">
+    <div id="contact" className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white">
       {/* Title */}
       <div className="relative">
         <h1 className="py-6 text-4xl md:text-5xl font-semibold">

@@ -5,7 +5,10 @@ import arrow_icon from "../assets/arrow_icon.svg";
 
 const MyWork = () => {
   return (
-    <div className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white">
+    <div
+      id="work"
+      className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
+    >
       {/* Title */}
       <div className="relative">
         <h1 className="py-6 text-4xl md:text-5xl font-semibold">

@@ -4,7 +4,10 @@ import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 md:gap-8 min-h-screen text-white">
+    <div
+      id="home"
+      className="flex flex-col items-center justify-center gap-6 md:gap-8 min-h-screen text-white mb-10"
+    >
       {/* Profile Image */}
       <img
         src={profile_img}

@@ -4,7 +4,10 @@ import profile_img from "../assets/profile_img.svg";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-10 mx-6 md:mx-20 py-10 text-white">
+    <div
+      id="about"
+      className="flex flex-col items-center justify-center gap-10 mx-6 md:mx-20 py-10 text-white"
+    >
       {/* Title */}
       <div className="relative">
         <h1 className="py-6 text-4xl md:text-5xl font-semibold">About Me</h1>
