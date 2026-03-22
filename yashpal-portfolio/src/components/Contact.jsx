@@ -1,33 +1,40 @@
 import React, { useState } from "react";
 import theme_pattern from "../assets/theme_pattern.svg";
 import { MailIcon, MapPinIcon, PhoneCallIcon } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Contact = () => {
-<<<<<<< HEAD
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    formData.append("access_key", "162e917a-0b51-41c5-8c03-3a417acb0b9d");
-=======
   const emailKey = import.meta.env.VITE_EMAIL_KEY;
 
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    formData.append("access_key", emailKey);
->>>>>>> f1feda4 (email access key updated)
+    setLoading(true);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const formData = new FormData(event.target);
+      formData.append("access_key", emailKey);
 
-    const data = await response.json();
-<<<<<<< HEAD
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        toast.success("Message sent successfully");
+        event.target.reset();
+      } else {
+        toast.error("Something went wrong");
+      }
+    } catch (error) {
+      toast.error("Network error!");
+    } finally {
+      setLoading(false);
+    }
+
     // setResult(data.success ? "Success!" : "Error");
-=======
-    setResult(data.success ? "Success!" : "Error");
->>>>>>> f1feda4 (email access key updated)
   };
   return (
     <div
@@ -84,6 +91,7 @@ const Contact = () => {
             placeholder="Enter your name..."
             name="name"
             className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-purple-500"
+            required
           />
 
           <label>Your Email</label>
@@ -92,6 +100,7 @@ const Contact = () => {
             placeholder="Enter your email..."
             name="email"
             className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-purple-500"
+            required
           />
 
           <label>Your Message</label>
@@ -100,13 +109,19 @@ const Contact = () => {
             placeholder="Write your message..."
             name="message"
             className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-purple-500"
+            required
           />
 
           <button
             type="submit"
-            className="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#df8908] to-[#b415ff] hover:scale-105 transition duration-300"
+            disabled={loading}
+            className="relative mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#df8908] to-[#b415ff] hover:scale-105 transition duration-300 disabled:opacity-50"
           >
-            Submit Now
+            {loading && (
+              <div className="absolute right-1/3 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            )}
+
+            {loading ? "Sending..." : "Submit"}
           </button>
         </form>
       </div>
