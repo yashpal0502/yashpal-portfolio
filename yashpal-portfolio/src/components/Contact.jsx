@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import theme_pattern from "../assets/theme_pattern.svg";
 import { MailIcon, MapPinIcon, PhoneCallIcon } from "lucide-react";
 
 const Contact = () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", "162e917a-0b51-41c5-8c03-3a417acb0b9d");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    // setResult(data.success ? "Success!" : "Error");
+  };
   return (
-    <div id="contact" className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white">
+    <div
+      id="contact"
+      className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
+    >
       {/* Title */}
       <div className="relative">
         <h1 className="py-6 text-4xl md:text-5xl font-semibold">
@@ -48,7 +64,7 @@ const Contact = () => {
         </div>
 
         {/* Right Side (Form) */}
-        <form className="flex flex-col gap-4 md:w-1/2">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4 md:w-1/2">
           <label>Your Name</label>
           <input
             type="text"

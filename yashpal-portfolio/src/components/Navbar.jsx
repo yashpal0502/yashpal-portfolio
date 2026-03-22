@@ -109,14 +109,15 @@ const Navbar = () => {
       </motion.div>
 
       {/* Button */}
-      <motion.p
+      <motion.a
+        href="#contact"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
         className="border rounded-full px-3 py-1.5 text-md bg-gradient-to-l from-[#da7c25] to-[#b923e1] hover:scale-110 transition duration-300 cursor-pointer"
       >
         Connect with me
-      </motion.p>
+      </motion.a>
     </motion.div>
   );
 };
