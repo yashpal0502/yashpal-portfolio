@@ -1,65 +1,166 @@
 import React from "react";
-import profile_img from "../assets/profile_img.svg";
-import yash from "../assets/yash.png";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { motion } from "motion/react";
+import avatar from "../assets/avatar.svg";
+import html from "../assets/html.svg";
+import js from "../assets/js.svg";
+import nodejs from "../assets/nodejs.svg";
+import css from "../assets/css.svg";
+import react from "../assets/react.svg";
+import { Github, Linkedin, Mail, ArrowDown, MailIcon } from "lucide-react";
 
 const Hero = () => {
   return (
     <div
       id="home"
-      className="flex flex-col lg:flex-row items-center justify-center gap-10 min-h-screen text-white mb-10 px-4 pt-10"
+      className="w-full h-full bg-[#0b0b0b] flex items-center justify-center"
     >
-      {/* RIGHT SIDE (Image) */}
-      <div className="lg:w-1/2 flex justify-center pt-10">
-        {/* <img
-          src={yash}
-          alt="profile"
-          className="w-60 md:w-72 lg:w-80 rounded-3xl shadow-2xl"
-        /> */}
-      </div>
-
-      {/* LEFT SIDE (Text Content) */}
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 md:gap-8 lg:w-1/2">
-        {/* Heading */}
-        <h1 className="font-medium text-2xl md:text-3xl lg:text-4xl">
-          <span className="bg-gradient-to-r from-[#df8908] to-[#b415ff] bg-clip-text text-transparent">
-            I'm Yashpal
-          </span>
-          , Full Stack Developer
-        </h1>
-
-        {/* Description */}
-        <p className="text-lg md:text-xl leading-relaxed text-gray-300">
-          Passionate developer focused on building responsive and user-friendly
-          web applications.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col md:flex-row items-center gap-5 font-medium">
-          <a
-            href="#contact"
-            className="px-5 py-2 rounded-full bg-gradient-to-r from-[#df8908] to-[#b415ff] hover:scale-105 transition duration-300 shadow-md hover:shadow-xl"
+      <div className="w-full max-w-7xl bg-gradient-to-r from-[#1a0f0a] via-[#2b140a] to-[#3a1a0a] p-10 md:p-12 relative overflow-hidden">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="z-10"
           >
-            Connect With Me
-          </a>
+            <h4 className="text-gray-300 text-lg mb-3">
+              Hey, I am
+              <span className="text-orange-500 font-semibold"> Yashpal</span>
+            </h4>
 
-          <button className="px-5 py-2 rounded-full border border-white hover:bg-white hover:text-black transition duration-300">
-            My Resume
-          </button>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              Full Stack Developer
+            </h1>
+
+            <p className="text-sm text-gray-400 max-w-md mb-6">
+              I design, build, and optimize full-stack web applications that
+              deliver real value. As a Full Stack Developer, I bridge the gap
+              between design and technology, transforming ideas into seamless,
+              high-performing digital experiences.
+            </p>
+
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-5 py-4 md:py-10 mb-4">
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-orange-500 px-7 py-3 rounded-full font-medium"
+              >
+                Connect with me
+              </motion.a>
+
+              <div className="flex items-start justify-start gap-4 ">
+                <motion.a
+                  href="https://github.com/yashpal0502"
+                  target="blank"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  className="w-12 h-12 flex items-center justify-center border border-gray-500 rounded-full"
+                >
+                  <Github />
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/yash-pal05"
+                  target="blank"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  className="w-12 h-12 flex items-center justify-center border border-gray-500 rounded-full"
+                >
+                  <Linkedin />
+                </motion.a>
+                <motion.a
+                  href="mailto:yashpalwork05@gmail.com"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  className="w-12 h-12 flex items-center justify-center border border-gray-500 rounded-full"
+                >
+                  <MailIcon />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex justify-center items-center h-110"
+          >
+            {/* GLOW */}
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="absolute w-[400px] h-[400px] bg-orange-500/20 rounded-full blur-3xl"
+            />
+
+            {/* IMAGE */}
+            <motion.img
+              src={avatar}
+              alt="hero"
+              initial={{ y: 30 }}
+              animate={{ y: [0, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="relative w-[300px] md:w-[400px] z-10"
+            />
+
+            {/* FLOATING ICONS */}
+
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="absolute bottom-20 left-2 md:left-8 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            >
+              <img src={js} className="w-7" />
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="absolute top-35 right-8 md:right-19 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            >
+              <img src={react} className="w-7" />
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="absolute top-35 left-8 md:left-19 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            >
+              <img src={html} className="w-7" />
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="absolute top-0 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            >
+              <img src={css} className="w-7" />
+            </motion.div>
+
+            <motion.div
+              animate={{ x: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="absolute bottom-20 right-2 md:right-8 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            >
+              <img src={nodejs} className="w-7" />
+            </motion.div>
+          </motion.div>
         </div>
 
-        {/* Social Icons */}
-        <div className="flex gap-6 mt-2">
-          <a href="https://github.com/yashpal0502" target="blank">
-            <Github className="cursor-pointer hover:scale-110 transition duration-300" />
-          </a>
-          <a href="https://www.linkedin.com/in/yash-pal05" target="blank">
-            <Linkedin className="cursor-pointer hover:scale-110 transition duration-300" />
-          </a>
-          <a href="mailto:yashpalwork05@gmail.com" target="blank">
-            <Mail className="cursor-pointer hover:scale-110 transition duration-300" />
-          </a>
-        </div>
+        {/* BACKGROUND TEXT */}
+        <motion.div
+          animate={{ rotate: [12, 18, 12] }}
+          transition={{ repeat: Infinity, duration: 6 }}
+          className="absolute left-[-100px] bottom-[-100px] text-[200px] text-orange-500/10 font-bold"
+        >
+          4
+        </motion.div>
+
+        <motion.div
+          animate={{ rotate: [12, 18, 12] }}
+          transition={{ repeat: Infinity, duration: 6 }}
+          className="absolute right-[-60px] top-[-60px] text-[200px] text-orange-500/10 font-bold"
+        >
+          1
+        </motion.div>
       </div>
     </div>
   );

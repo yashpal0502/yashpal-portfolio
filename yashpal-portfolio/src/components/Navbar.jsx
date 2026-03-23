@@ -30,7 +30,7 @@ const Navbar = () => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative flex items-center justify-between mx-10 md:mx-20 py-2"
+      className="relative flex items-center justify-between mx-10 md:mx-20 py-4"
     >
       {/* Logo */}
 
@@ -94,20 +94,6 @@ const Navbar = () => {
             Portfolio
           </span>
         </motion.a>
-
-        <motion.a
-          variants={item}
-          href="#contact"
-          whileHover={{ scale: 1.1 }}
-          className="relative overflow-hidden h-6 group"
-        >
-          <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Contact
-          </span>
-          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Contact
-          </span>
-        </motion.a>
       </motion.div>
 
       {/* Button */}
@@ -142,19 +128,35 @@ const Navbar = () => {
       >
         <img src={logo} alt="logo" />
         <div className="flex flex-col gap-5 max-md:gap-8 text-white font-medium">
-          <a href="#home" onClick={() => setIsMenuOpen(false)}>
+          <a
+            href="#home"
+            onClick={() => setIsMenuOpen(false)}
+            className="transform hover:scale-110 transition duration-200"
+          >
             Home
           </a>
 
-          <a href="#about" onClick={() => setIsMenuOpen(false)}>
+          <a
+            href="#about"
+            onClick={() => setIsMenuOpen(false)}
+            className="transform hover:scale-110 transition duration-200"
+          >
             About Me
           </a>
 
-          <a href="#service" onClick={() => setIsMenuOpen(false)}>
+          <a
+            href="#service"
+            onClick={() => setIsMenuOpen(false)}
+            className="transform hover:scale-110 transition duration-200"
+          >
             Services
           </a>
 
-          <a href="#work" onClick={() => setIsMenuOpen(false)}>
+          <a
+            href="#work"
+            onClick={() => setIsMenuOpen(false)}
+            className="transform hover:scale-110 transition duration-200"
+          >
             My Works
           </a>
         </div>
