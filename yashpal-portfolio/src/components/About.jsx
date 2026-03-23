@@ -1,6 +1,6 @@
 import React from "react";
 import theme_pattern from "../assets/theme_pattern.svg";
-import profile_img from "../assets/profile_img.svg";
+import yash from "../assets/yash.png";
 
 const About = () => {
   return (
@@ -23,9 +23,9 @@ const About = () => {
         {/* Left */}
         <div>
           <img
-            src={profile_img}
+            src={yash}
             alt="profile-img"
-            className="w-48 md:w-64 rounded-xl shadow-lg"
+            className="w-48 md:w-64 rounded-xl shadow-lg animate-pulse"
           />
         </div>
 
