@@ -1,5 +1,6 @@
 import React from "react";
 import footer_logo from "../assets/footer_logo.svg";
+import logo from "../assets/logo.svg";
 import { User2Icon } from "lucide-react";
 
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between gap-10">
         {/* Left */}
         <div className="flex flex-col gap-4 md:w-1/2">
-          <img src={footer_logo} alt="logo" className="w-36" />
+          <img src={logo} alt="logo" className="w-36" />
 
           <p className="text-gray-400 leading-relaxed">
             Passionate developer focused on building responsive and

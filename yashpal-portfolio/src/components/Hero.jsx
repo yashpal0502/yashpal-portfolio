@@ -11,11 +11,11 @@ const Hero = () => {
     >
       {/* RIGHT SIDE (Image) */}
       <div className="lg:w-1/2 flex justify-center pt-10">
-        <img
+        {/* <img
           src={yash}
           alt="profile"
-          className="w-60 md:w-72 lg:w-80 rounded-3xl shadow-2xl animate-bounce"
-        />
+          className="w-60 md:w-72 lg:w-80 rounded-3xl shadow-2xl"
+        /> */}
       </div>
 
       {/* LEFT SIDE (Text Content) */}
@@ -50,9 +50,15 @@ const Hero = () => {
 
         {/* Social Icons */}
         <div className="flex gap-6 mt-2">
-          <Github className="cursor-pointer hover:scale-110 transition duration-300" />
-          <Linkedin className="cursor-pointer hover:scale-110 transition duration-300" />
-          <Mail className="cursor-pointer hover:scale-110 transition duration-300" />
+          <a href="https://github.com/yashpal0502" target="blank">
+            <Github className="cursor-pointer hover:scale-110 transition duration-300" />
+          </a>
+          <a href="https://www.linkedin.com/in/yash-pal05" target="blank">
+            <Linkedin className="cursor-pointer hover:scale-110 transition duration-300" />
+          </a>
+          <a href="mailto:yashpalwork05@gmail.com" target="blank">
+            <Mail className="cursor-pointer hover:scale-110 transition duration-300" />
+          </a>
         </div>
       </div>
     </div>

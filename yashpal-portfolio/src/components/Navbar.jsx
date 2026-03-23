@@ -33,7 +33,8 @@ const Navbar = () => {
       className="relative flex items-center justify-between mx-10 md:mx-20 py-2"
     >
       {/* Logo */}
-      <img src={logo} alt="logo" />
+
+      <img src={logo} alt="logo" className="" />
 
       {/* Menu */}
       <motion.div className="hidden md:flex gap-10 font-medium text-sm">
@@ -120,7 +121,7 @@ const Navbar = () => {
           href="#contact"
           className="border rounded-full px-3 py-1.5 text-md bg-gradient-to-l from-[#da7c25] to-[#b923e1] hover:scale-110 transition duration-300 cursor-pointer"
         >
-          Connect with me
+          Connect
         </a>
         {/* Mobile Menu Button */}
 
@@ -161,7 +162,7 @@ const Navbar = () => {
         <a
           href="#contact"
           onClick={() => setIsMenuOpen(false)}
-          className="border rounded-full px-3 py-1.5 text-md bg-gradient-to-l from-[#da7c25] to-[#b923e1] hover:scale-110 transition duration-300 cursor-pointer"
+          className="border rounded-full px-3 py-1.5 text-white text-md bg-gradient-to-l from-[#da7c25] to-[#b923e1] hover:scale-110 transition duration-300 cursor-pointer"
         >
           Connect with me
         </a>
