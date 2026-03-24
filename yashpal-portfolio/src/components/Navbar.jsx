@@ -30,7 +30,7 @@ const Navbar = () => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative flex items-center justify-between mx-10 md:mx-20 py-4"
+      className="relative flex items-center justify-between px-10 md:px-20 py-4 bg-gradient-to-r from-[#1a0f0a] via-[#2b140a] to-[#3a1a0a]"
     >
       {/* Logo */}
 
@@ -105,9 +105,9 @@ const Navbar = () => {
       >
         <a
           href="#contact"
-          className="border rounded-full px-3 py-1.5 text-md bg-gradient-to-l from-[#da7c25] to-[#b923e1] hover:scale-110 transition duration-300 cursor-pointer"
+          className="hidden md:block rounded-full px-5 py-2 text-white font-medium bg-gradient-to-r from-[#ff7a18] to-[#ff3c00] hover:scale-110 hover:shadow-[0_0_25px_rgba(255,120,0,0.6)] transition duration-300"
         >
-          Connect
+          My Resume
         </a>
         {/* Mobile Menu Button */}
 
@@ -115,17 +115,23 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="flex md:hidden"
         >
-          {isMenuOpen ? <X size={28} /> : <MenuIcon size={28} />}
+          <MenuIcon size={28} />
         </div>
       </motion.div>
 
       {/* Mobile Menu */}
 
       <div
-        className={`fixed top-0 left-0 w-60 h-screen z-50 bg-black/70 text-base flex flex-col items-center justify-between py-20 max-md:py-40 gap-10 font-medium text-gray-800 backdrop-blur-sm transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full h-screen z-50 bg-black/70 text-base flex flex-col items-center justify-between py-20 max-md:py-40 gap-10 font-medium text-gray-800 backdrop-blur-sm transition-all duration-500 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
+        <button
+          className="absolute top-8 right-6"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <X size={32} className="text-white" />
+        </button>
         <img src={logo} alt="logo" />
         <div className="flex flex-col gap-5 max-md:gap-8 text-white font-medium">
           <a
@@ -164,9 +170,9 @@ const Navbar = () => {
         <a
           href="#contact"
           onClick={() => setIsMenuOpen(false)}
-          className="border rounded-full px-3 py-1.5 text-white text-md bg-gradient-to-l from-[#da7c25] to-[#b923e1] hover:scale-110 transition duration-300 cursor-pointer"
+          className="rounded-full px-5 py-2 text-white font-medium bg-gradient-to-r from-[#ff7a18] to-[#ff3c00] hover:scale-110 hover:shadow-[0_0_25px_rgba(255,120,0,0.6)] transition duration-300"
         >
-          Connect with me
+          My Resume
         </a>
       </div>
     </motion.div>
