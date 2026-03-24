@@ -43,7 +43,15 @@ const Hero = () => {
               href="#contact"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-orange-500 px-7 py-3 rounded-full font-medium"
+              className="md:hidden bg-orange-500 px-7 py-3 rounded-full font-medium hover:shadow-[0_0_20px_rgba(255,120,0,0.3)]"
+            >
+              My Resume
+            </motion.a>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="hidden md:flex bg-orange-500 px-7 py-3 rounded-full font-medium hover:shadow-[0_0_20px_rgba(255,120,0,0.3)]"
             >
               Connect with me
             </motion.a>

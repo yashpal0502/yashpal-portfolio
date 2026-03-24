@@ -172,7 +172,7 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(false)}
           className="rounded-full px-5 py-2 text-white font-medium bg-gradient-to-r from-[#ff7a18] to-[#ff3c00] hover:scale-110 hover:shadow-[0_0_25px_rgba(255,120,0,0.6)] transition duration-300"
         >
-          My Resume
+          Connect with me
         </a>
       </div>
     </motion.div>
