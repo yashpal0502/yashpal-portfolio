@@ -24,31 +24,51 @@ const Services = () => {
         {Services_Data.map((service, idx) => (
           <div
             key={idx}
-            className="bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-l from-[#3f0028] to-[#582300] hover:border border-[#ff00ff] transition duration-300 flex flex-col gap-4"
+            className="group relative bg-[#111] p-6 rounded-2xl border border-white/10 
+      hover:border-[#ff7a18] transition duration-500 overflow-hidden cursor-pointer"
           >
-            {/* Number */}
-            <h3 className="text-lg text-gray-400">{service.s_no}</h3>
+            {/* GLOW BACKGROUND */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+      bg-gradient-to-br from-[#ff7a18]/10 to-[#ff3c00]/10 blur-xl"
+            ></div>
 
-            {/* Title */}
-            <h2 className="text-xl font-semibold bg-gradient-to-r from-[#df8908] to-[#b415ff] bg-clip-text text-transparent">
-              {service.s_name}
-            </h2>
+            {/* CONTENT */}
+            <div className="relative z-10 flex flex-col gap-4">
+              {/* NUMBER */}
+              <h3 className="text-sm text-gray-500">{service.s_no}</h3>
 
-            {/* Description */}
-            <p className="text-gray-400 text-sm leading-relaxed">
-              {service.s_desc}
-            </p>
+              {/* TITLE */}
+              <h2
+                className="text-xl font-semibold 
+        bg-gradient-to-r from-[#ff7a18] to-[#ff3c00] 
+        bg-clip-text text-transparent"
+              >
+                {service.s_name}
+              </h2>
 
-            {/* Read More */}
-            <div className="flex items-center gap-2 mt-3 cursor-pointer group">
-              <p className="text-sm group-hover:text-purple-400 transition">
-                Read More
+              {/* DESCRIPTION (HIDDEN INITIALLY) */}
+              <p
+                className="text-gray-400 text-sm leading-relaxed 
+        opacity-0 max-h-0 overflow-hidden 
+        group-hover:opacity-100 group-hover:max-h-40 
+        transition-all duration-500"
+              >
+                {service.s_desc}
               </p>
-              <img
-                src={arrow_icon}
-                alt="arrow"
-                className="w-4 group-hover:translate-x-1 transition"
-              />
+
+              {/* READ MORE */}
+              <div className="flex items-center gap-2 mt-2">
+                <p className="text-sm text-gray-400 group-hover:text-[#ff7a18] transition">
+                  Read More
+                </p>
+
+                <img
+                  src={arrow_icon}
+                  alt="arrow"
+                  className="w-4 transition-transform duration-300 group-hover:translate-x-2"
+                />
+              </div>
             </div>
           </div>
         ))}
