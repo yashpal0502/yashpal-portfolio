@@ -48,7 +48,7 @@ const MyWork = () => {
                 <a
                   href={work.w_link}
                   target="blank"
-                  className="px-4 py-1 text-sm rounded bg-gradient-to-r from-[#df8908] to-[#b415ff]"
+                  className="px-4 py-1 text-sm rounded bg-orange-500"
                 >
                   Live Demo
                 </a>
