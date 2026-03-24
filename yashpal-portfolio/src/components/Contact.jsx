@@ -68,17 +68,17 @@ const Contact = () => {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <MailIcon />
-              <p>yourmail@gmail.com</p>
+              <p>yashpalwork05@gmail.com</p>
             </div>
 
             <div className="flex items-center gap-3">
               <PhoneCallIcon />
-              <p>+91 12345 67890</p>
+              <p>+91 9821735354</p>
             </div>
 
             <div className="flex items-center gap-3">
               <MapPinIcon />
-              <p>India</p>
+              <p>Gurgaon, India</p>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Contact = () => {
             type="text"
             placeholder="Enter your name..."
             name="name"
-            className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-purple-500"
+            className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-orange-500"
             required
           />
 
@@ -99,7 +99,7 @@ const Contact = () => {
             type="email"
             placeholder="Enter your email..."
             name="email"
-            className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-purple-500"
+            className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-orange-500"
             required
           />
 
@@ -108,14 +108,14 @@ const Contact = () => {
             rows={6}
             placeholder="Write your message..."
             name="message"
-            className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-purple-500"
+            className="p-3 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-orange-500"
             required
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="relative mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#df8908] to-[#b415ff] hover:scale-105 transition duration-300 disabled:opacity-50"
+            className="relative mt-4 px-6 py-3 rounded-full bg-orange-500 hover:shadow-[0_0_20px_rgba(255,120,0,0.3)] hover:scale-105 transition duration-300 disabled:opacity-50"
           >
             {loading && (
               <div className="absolute right-1/3 top-1/2 -translate-y-1/2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
