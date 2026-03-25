@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import logo from "../assets/logo.svg";
+import yash from "../assets/yash.png";
 import { MenuIcon, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showResume, setShowResume] = useState(false);
 
   // container animation (stagger effect)
   const container = {
@@ -30,7 +32,7 @@ const Navbar = () => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative flex items-center justify-between px-10 md:px-20 py-4 bg-gradient-to-r from-[#1a0f0a] via-[#2b140a] to-[#3a1a0a]"
+      className="w-full relative flex items-center justify-between px-10 md:px-20 py-4 bg-gradient-to-r from-[#1a0f0a] via-[#2b140a] to-[#3a1a0a]"
     >
       {/* Logo */}
 
@@ -103,12 +105,12 @@ const Navbar = () => {
         transition={{ delay: 0.5 }}
         className="flex gap-2 items-center"
       >
-        <a
-          href="#contact"
-          className="hidden md:block rounded-full px-5 py-2 text-white font-medium bg-gradient-to-r from-[#ff7a18] to-[#ff3c00] hover:scale-110 hover:shadow-[0_0_25px_rgba(255,120,0,0.6)] transition duration-300"
+        <div
+          onClick={() => setShowResume(!showResume)}
+          className="hidden md:block rounded-full px-5 py-2 text-white font-medium bg-gradient-to-r from-[#ff7a18] to-[#ff3c00] cursor-pointer hover:scale-110 hover:shadow-[0_0_25px_rgba(255,120,0,0.6)] transition duration-300"
         >
           My Resume
-        </a>
+        </div>
         {/* Mobile Menu Button */}
 
         <div
@@ -122,7 +124,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
 
       <div
-        className={`fixed top-0 left-0 w-full h-screen z-50 bg-black/70 text-base flex flex-col items-center justify-between py-20 max-md:py-40 gap-10 font-medium text-gray-800 backdrop-blur-sm transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full h-full z-50 bg-black/70 text-base flex flex-col items-center justify-between py-20 max-md:py-40 gap-10 font-medium text-gray-800 backdrop-blur-sm transition-all duration-500 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -174,6 +176,24 @@ const Navbar = () => {
         >
           Connect with me
         </a>
+      </div>
+
+      {/* Resume Section */}
+
+      <div
+        className={`fixed top-0 left-0 w-full h-full z-50 bg-black/70 text-base flex flex-col items-center py-2 max-md:py-4 backdrop-blur-lg transition-all duration-500 ${showResume ? "translate-y-0" : "translate-y-full"}`}
+      >
+        <button
+          className="absolute top-8 right-6 p-1 rounded-full bg-white/20 hover:bg-white/30 transition"
+          onClick={() => setShowResume(false)}
+        >
+          <X size={30} className="text-white" />
+        </button>
+        <img
+          src={yash}
+          alt="resume"
+          className="max-md:px-4 max-md:py-20 overflow-hidden"
+        />
       </div>
     </motion.div>
   );

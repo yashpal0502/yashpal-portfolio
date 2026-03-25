@@ -38,24 +38,24 @@ const Contact = () => {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 60 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   const fadeLeft = {
     hidden: { opacity: 0, x: -60 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+    show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
   const fadeRight = {
     hidden: { opacity: 0, x: 60 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+    show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
   const container = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.5,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -67,7 +67,7 @@ const Contact = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, margin: "-100px" }}
-      className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
+      className="w-full flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
     >
       {/* Title */}
       <motion.div variants={fadeUp} className="relative">
@@ -83,7 +83,7 @@ const Contact = () => {
 
       {/* Content */}
       <div className="flex flex-col md:flex-row gap-10 w-full">
-        {/* LEFT */}
+        {/* Left */}
         <motion.div
           variants={fadeLeft}
           className="flex flex-col gap-6 md:w-1/2"
@@ -109,7 +109,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* RIGHT FORM */}
+        {/* Right */}
         <motion.form
           variants={fadeRight}
           onSubmit={onSubmit}
@@ -147,7 +147,7 @@ const Contact = () => {
             required
           />
 
-          {/* BUTTON */}
+          {/* Submit button */}
           <button
             type="submit"
             disabled={loading}

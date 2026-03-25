@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 1 } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const container = {
@@ -36,7 +36,7 @@ const Services = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, margin: "-100px" }}
-      className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
+      className="w-full flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
     >
       {/* Title */}
       <motion.div variants={fadeUp} className="relative">
@@ -58,13 +58,12 @@ const Services = () => {
               className="group relative bg-[#111] p-6 rounded-2xl border border-white/10 
         hover:border-[#ff7a18] transition duration-500 overflow-hidden cursor-pointer"
             >
-              {/* GLOW */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
         bg-gradient-to-br from-[#ff7a18]/10 to-[#ff3c00]/10 blur-xl"
               ></div>
 
-              {/* CONTENT */}
+              {/* Content */}
               <div className="relative z-10 flex flex-col gap-4">
                 <h3 className="text-sm text-gray-500">{service.s_no}</h3>
 
@@ -76,7 +75,7 @@ const Services = () => {
                   {service.s_name}
                 </h2>
 
-                {/* DESCRIPTION */}
+                {/* Description */}
                 <p
                   className="text-gray-400 text-sm leading-relaxed 
           opacity-0 max-h-0 overflow-hidden 
@@ -86,7 +85,7 @@ const Services = () => {
                   {service.s_desc}
                 </p>
 
-                {/* READ MORE */}
+                {/* Read More */}
                 <div className="flex items-center gap-2 mt-2">
                   <p className="text-sm text-gray-400 group-hover:text-[#ff7a18] transition">
                     Read More

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import avatar from "../assets/avatar.svg";
 import html from "../assets/html.svg";
@@ -6,16 +6,19 @@ import js from "../assets/js.svg";
 import nodejs from "../assets/nodejs.svg";
 import css from "../assets/css.svg";
 import react from "../assets/react.svg";
-import { Github, Linkedin, Mail, ArrowDown, MailIcon } from "lucide-react";
+import yash from "../assets/yash.png";
+import { Github, Linkedin, MailIcon, X } from "lucide-react";
 
 const Hero = () => {
+  const [showResume, setShowResume] = useState(false);
+
   return (
     <div
       id="home"
-      className="w-full bg-gradient-to-r from-[#1a0f0a] via-[#2b140a] to-[#3a1a0a] p-10 md:p-12"
+      className="w-full overflow-x-hidden bg-gradient-to-r from-[#1a0f0a] via-[#2b140a] to-[#3a1a0a] p-10 md:p-12"
     >
       <div className="grid md:grid-cols-2 gap-10 items-center">
-        {/* LEFT CONTENT */}
+        {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           animate={{ opacity: 1, x: 0 }}
@@ -31,7 +34,7 @@ const Hero = () => {
             Full Stack Developer
           </h1>
 
-          <p className="text-sm text-gray-400 max-w-md mb-6">
+          <p className="text-sm text-gray-400 mb-6">
             I design, build, and optimize full-stack web applications that
             deliver real value. As a Full Stack Developer, I bridge the gap
             between design and technology, transforming ideas into seamless,
@@ -39,14 +42,14 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-5 py-4 md:py-10 mb-4">
-            <motion.a
-              href="#contact"
+            <motion.div
+              onClick={() => setShowResume(!showResume)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="md:hidden bg-orange-500 px-7 py-3 rounded-full font-medium hover:shadow-[0_0_20px_rgba(255,120,0,0.3)]"
+              className="md:hidden bg-orange-500 px-7 py-3 rounded-full font-medium hover:shadow-[0_0_20px_rgba(255,120,0,0.3)] cursor-pointer"
             >
               My Resume
-            </motion.a>
+            </motion.div>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.1 }}
@@ -84,21 +87,19 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* RIGHT SIDE */}
+        {/* Right Content */}
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative flex justify-center items-center h-110"
+          className="relative flex justify-center items-center h-[440px]"
         >
-          {/* GLOW */}
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ repeat: Infinity, duration: 3 }}
-            className="absolute w-[400px] h-[400px] bg-orange-500/20 rounded-full blur-3xl"
+            className="absolute w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-orange-500/20 rounded-full blur-3xl"
           />
 
-          {/* IMAGE */}
           <motion.img
             src={avatar}
             alt="hero"
@@ -107,8 +108,6 @@ const Hero = () => {
             transition={{ repeat: Infinity, duration: 4 }}
             className="relative w-[300px] md:w-[400px] z-10"
           />
-
-          {/* FLOATING ICONS */}
 
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -121,7 +120,7 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 4 }}
-            className="absolute top-35 right-8 md:right-19 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            className="absolute top-[140px] right-8 md:right-[76px] bg-white/10 p-3 rounded-xl backdrop-blur-md"
           >
             <img src={css} className="w-7" />
           </motion.div>
@@ -129,7 +128,7 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 3 }}
-            className="absolute top-35 left-8 md:left-19 bg-white/10 p-3 rounded-xl backdrop-blur-md"
+            className="absolute top-[140px] left-8 md:left-[76px] bg-white/10 p-3 rounded-xl backdrop-blur-md"
           >
             <img src={html} className="w-7" />
           </motion.div>
@@ -150,6 +149,24 @@ const Hero = () => {
             <img src={nodejs} className="w-7" />
           </motion.div>
         </motion.div>
+
+        {/* Resume Section */}
+
+        <div
+          className={`fixed top-0 left-0 w-full h-full z-50 bg-black/70 text-base flex flex-col items-center py-2 max-md:py-4 backdrop-blur-lg transition-all duration-500 ${showResume ? "translate-y-0" : "translate-y-full"}`}
+        >
+          <button
+            className="absolute top-8 right-6 p-1 rounded-full bg-white/20 hover:bg-white/30 transition"
+            onClick={() => setShowResume(false)}
+          >
+            <X size={30} className="text-white" />
+          </button>
+          <img
+            src={yash}
+            alt="resume"
+            className="max-md:px-4 max-md:py-20 overflow-hidden"
+          />
+        </div>
       </div>
     </div>
   );

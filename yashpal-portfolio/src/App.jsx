@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <Toaster />
       <Navbar />
       <Hero />

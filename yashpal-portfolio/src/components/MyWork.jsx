@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 1 } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const container = {
@@ -24,7 +24,7 @@ const cardVariant = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.3 },
   },
 };
 
@@ -42,7 +42,7 @@ const MyWork = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, margin: "-100px" }}
-      className="flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
+      className="w-full flex flex-col items-center gap-12 py-16 px-6 md:px-20 text-white"
     >
       {/* Title */}
       <motion.div variants={fadeUp} className="relative">
@@ -71,7 +71,6 @@ const MyWork = () => {
               className="w-full h-60 object-cover rounded-xl group-hover:scale-110 transition duration-500"
             />
 
-            {/* Overlay */}
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center gap-3">
               <p className="text-lg font-semibold">
                 {work.w_live ? "View Project" : "In progress..."}
@@ -91,9 +90,7 @@ const MyWork = () => {
         ))}
       </div>
 
-      {/* Show More Button */}
-
-      {workData.length > 3 ? (
+      {workData.length > 4 ? (
         <div className="flex items-center gap-2 border rounded-full px-7 py-3 mt-6 cursor-pointer group">
           <p className="text-lg group-hover:text-purple-400 transition">
             Show More
