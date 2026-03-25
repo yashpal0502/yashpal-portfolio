@@ -30,6 +30,7 @@ const cardVariant = {
 
 const MyWork = () => {
   const [workData, setWorkData] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     setWorkData(mywork_data);
@@ -62,6 +63,7 @@ const MyWork = () => {
           <motion.div
             key={idx}
             variants={cardVariant}
+            onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
             className="relative group overflow-hidden rounded-xl"
           >
             {/* Image */}
@@ -71,7 +73,9 @@ const MyWork = () => {
               className="w-full h-60 object-cover rounded-xl group-hover:scale-110 transition duration-500"
             />
 
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center gap-3">
+            <div
+              className={`absolute inset-0 bg-black/60 transition duration-300 flex flex-col justify-center items-center gap-3 ${activeIndex === idx ? "opacity-100" : "opacity-0 md:group-hover:opacity-100"}`}
+            >
               <p className="text-lg font-semibold">
                 {work.w_live ? "View Project" : "In progress..."}
               </p>
