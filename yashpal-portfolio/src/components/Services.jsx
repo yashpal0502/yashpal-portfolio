@@ -1,4 +1,4 @@
-import React from "react";
+import React, { act, useState } from "react";
 import theme_pattern from "../assets/theme_pattern.svg";
 import Services_Data from "../assets/services_data";
 import arrow_icon from "../assets/arrow_icon.svg";
@@ -29,6 +29,8 @@ const cardVariant = {
 };
 
 const Services = () => {
+  const [expand, setExpand] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
   return (
     <motion.div
       id="service"
@@ -55,6 +57,7 @@ const Services = () => {
             <motion.div
               key={idx}
               variants={cardVariant}
+              onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
               className="group relative bg-[#111] p-6 rounded-2xl border border-white/10 
         hover:border-[#ff7a18] transition duration-500 overflow-hidden cursor-pointer"
             >
@@ -76,17 +79,28 @@ const Services = () => {
                 </h2>
 
                 {/* Description */}
-                <p
+
+                {setExpand && (
+                  <p
+                    className={`text-gray-400 text-sm leading-relaxed overflow-hidden ${activeIndex === idx ? "opacity-100 max-h-40" : "opacity-0 max-h-0"} md:group-hover:opacity-100 md:group-hover:max-h-40 transition-all duration-500`}
+                  >
+                    {service.s_desc}
+                  </p>
+                )}
+                {/* <p
                   className="text-gray-400 text-sm leading-relaxed 
           opacity-0 max-h-0 overflow-hidden 
           group-hover:opacity-100 group-hover:max-h-40 
           transition-all duration-500"
                 >
                   {service.s_desc}
-                </p>
+                </p> */}
 
                 {/* Read More */}
-                <div className="flex items-center gap-2 mt-2">
+                <button
+                  onClick={() => setExpand(!expand)}
+                  className="flex items-center gap-2 mt-2"
+                >
                   <p className="text-sm text-gray-400 group-hover:text-[#ff7a18] transition">
                     Read More
                   </p>
@@ -96,7 +110,7 @@ const Services = () => {
                     alt="arrow"
                     className="w-4 transition-transform duration-300 group-hover:translate-x-2"
                   />
-                </div>
+                </button>
               </div>
             </motion.div>
           ))}
