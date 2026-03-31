@@ -42,7 +42,7 @@ const Services = () => {
     >
       {/* Title */}
       <motion.div variants={fadeUp} className="relative">
-        <h1 className="py-6 text-4xl md:text-5xl font-semibold">My Services</h1>
+        <h1 className="py-6 text-4xl md:text-5xl font-semibold">Services</h1>
         <img
           src={theme_pattern}
           alt="theme-pattern"
