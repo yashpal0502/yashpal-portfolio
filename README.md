@@ -1,8 +1,8 @@
 # 🌐 Personal Portfolio Website
 
 <p align="center">
-A modern and responsive **personal portfolio website** built to showcase my projects, skills, and experience.
-Designed with a focus on **clean UI, smooth animations, and user experience**.
+A modern and responsive <b>personal portfolio website</b> built to showcase my projects, skills, and experience.
+Designed with a focus on <b>clean UI, smooth animations, and user experience</b>.
 </p>
 
 <p align="center">
